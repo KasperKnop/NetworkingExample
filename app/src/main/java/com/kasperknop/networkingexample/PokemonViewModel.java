@@ -1,0 +1,21 @@
+package com.kasperknop.networkingexample;
+
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
+
+public class PokemonViewModel extends ViewModel {
+
+    PokemonRepository repository;
+
+    public PokemonViewModel(){
+        repository = PokemonRepository.getInstance();
+    }
+
+    LiveData<Pokemon> getPokemon() {
+        return repository.getPokemon();
+    }
+
+    public void requestPokemon(String s) {
+        repository.requestPokemon(s);
+    }
+}
