@@ -37,7 +37,7 @@ public class PokemonRepository {
             @Override
             public void onResponse(Call<PokemonResponse> call, Response<PokemonResponse> response) {
                 if (response.code() == 200) {
-                    pokemon.postValue(response.body().getPokemon());
+                    pokemon.setValue(response.body().getPokemon());
                 }
             }
 
