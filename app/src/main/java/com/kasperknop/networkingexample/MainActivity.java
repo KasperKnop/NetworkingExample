@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void makeRequest(View view) {
-        viewModel.requestPokemon(editText.getText().toString());
+    public void updatePokemon(View view) {
+        viewModel.updatePokemon(editText.getText().toString());
     }
 }

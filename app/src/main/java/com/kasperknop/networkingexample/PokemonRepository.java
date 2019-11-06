@@ -30,7 +30,7 @@ public class PokemonRepository {
         return pokemon;
     }
 
-    public void requestPokemon(String pokemonName) {
+    public void updatePokemon(String pokemonName) {
         PokemonApi pokemonApi = ServiceGenerator.getPokemonApi();
         Call<PokemonResponse> call = pokemonApi.getPokemon(pokemonName);
         call.enqueue(new Callback<PokemonResponse>() {

@@ -15,7 +15,7 @@ public class PokemonViewModel extends ViewModel {
         return repository.getPokemon();
     }
 
-    public void requestPokemon(String s) {
-        repository.requestPokemon(s);
+    public void updatePokemon(String s) {
+        repository.updatePokemon(s);
     }
 }
