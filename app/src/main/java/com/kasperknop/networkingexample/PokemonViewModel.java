@@ -4,18 +4,17 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 public class PokemonViewModel extends ViewModel {
-
     PokemonRepository repository;
 
-    public PokemonViewModel(){
+    public PokemonViewModel() {
         repository = PokemonRepository.getInstance();
     }
 
-    LiveData<Pokemon> getPokemon() {
-        return repository.getPokemon();
+    LiveData<Pokemon> getSearchedPokemon() {
+        return repository.getSearchedPokemon();
     }
 
-    public void updatePokemon(String s) {
-        repository.updatePokemon(s);
+    public void searchForPokemon(String s) {
+        repository.searchForPokemon(s);
     }
 }

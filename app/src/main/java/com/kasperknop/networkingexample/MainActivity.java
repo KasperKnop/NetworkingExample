@@ -6,34 +6,27 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
 
 public class MainActivity extends AppCompatActivity {
-
-    EditText editText;
-    ImageView imageView;
-    PokemonViewModel viewModel;
+    private EditText editText;
+    private PokemonViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ImageView imageView = findViewById(R.id.imageView);
         editText = findViewById(R.id.editText);
-        imageView = findViewById(R.id.imageView);
         viewModel = new ViewModelProvider(this).get(PokemonViewModel.class);
-        viewModel.getPokemon().observe(this, new Observer<Pokemon>() {
-            @Override
-            public void onChanged(Pokemon pokemon) {
-                Glide.with(MainActivity.this).load(pokemon.getImageUrl()).into(imageView);
-            }
+        viewModel.getSearchedPokemon().observe(this, pokemon -> {
+            Glide.with(this).load(pokemon.getImageUrl()).into(imageView);
         });
     }
 
-    public void updatePokemon(View view) {
-        viewModel.updatePokemon(editText.getText().toString());
+    public void searchForPokemon(View view) {
+        viewModel.searchForPokemon(editText.getText().toString());
     }
 }

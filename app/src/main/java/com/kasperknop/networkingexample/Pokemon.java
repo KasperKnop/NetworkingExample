@@ -1,9 +1,9 @@
 package com.kasperknop.networkingexample;
 
 class Pokemon {
-    private int number;
-    private String name;
-    private String imageUrl;
+    private final int number;
+    private final String name;
+    private final String imageUrl;
 
     public Pokemon(int number, String name, String imageUrl) {
         this.number = number;
